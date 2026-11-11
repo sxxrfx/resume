@@ -1,0 +1,238 @@
+/* Fonts are self-hosted so the page and the PDF printed from it in CI look the same. */
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/inter-latin-wght-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --page: #f3f1ec;
+  --sheet: #ffffff;
+  --ink: #1b1a1f;
+  --muted: #5d5a66;
+  --rule: #e2dfd8;
+  --accent: #6d28d9;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.05), 0 12px 40px rgb(0 0 0 / 0.07);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #111014;
+    --sheet: #19181e;
+    --ink: #eceaf1;
+    --muted: #a5a1b0;
+    --rule: #2d2b35;
+    --accent: #b197fc;
+    --shadow: none;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #111014;
+  --sheet: #19181e;
+  --ink: #eceaf1;
+  --muted: #a5a1b0;
+  --rule: #2d2b35;
+  --accent: #b197fc;
+  --shadow: none;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 0 16px 48px;
+  background: var(--page);
+  color: var(--ink);
+  font: 400 15px/1.55 "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-feature-settings: "cv11", "ss03";
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { color: var(--accent); text-decoration-color: currentColor; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+
+.only-print { display: none; }
+
+/* Toolbar */
+.toolbar {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 16px 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.button {
+  font: 500 13px/1 "Inter", ui-sans-serif, system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 9px 14px;
+  min-height: 34px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button:hover { color: var(--accent); border-color: var(--accent); }
+
+/* Sheet */
+.sheet {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 56px 64px 60px;
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.masthead h1 {
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.summary {
+  margin: 14px 0 0;
+  max-width: 62ch;
+  font-size: 16px;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+.contact {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 22px;
+  font: 500 13px/1.6 "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+section {
+  display: grid;
+  grid-template-columns: 124px minmax(0, 1fr);
+  column-gap: 24px;
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule);
+}
+h2 {
+  margin: 3px 0 0;
+  font: 600 11.5px/1.5 "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.entry + .entry { margin-top: 20px; }
+.entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0 16px;
+}
+h3 {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+h3 a { text-decoration: none; }
+h3 a:hover { text-decoration: underline; }
+.what {
+  margin-left: 6px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+.when, .stack {
+  font: 400 12px/1.6 "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--muted);
+}
+.when { white-space: nowrap; }
+.stack { margin: 3px 0 0; }
+
+ul { margin: 7px 0 0; padding-left: 1.05em; }
+li { margin: 3px 0 0; text-wrap: pretty; }
+li::marker { color: var(--accent); }
+.contact li { margin: 0; }
+
+.compact { margin-top: 0; list-style: none; padding: 0; }
+.compact li { margin: 0; }
+.compact li + li { margin-top: 6px; }
+strong { font-weight: 600; }
+
+.skills { margin: 0; }
+.skills > div { display: grid; grid-template-columns: 96px minmax(0, 1fr); column-gap: 12px; }
+.skills > div + div { margin-top: 5px; }
+.skills dt { font-weight: 600; }
+.skills dd { margin: 0; }
+
+/* Phone */
+@media (max-width: 700px) {
+  body { padding: 0 16px 32px; }
+  .sheet { padding: 28px 20px 32px; }
+  .masthead h1 { font-size: 32px; }
+  .summary { font-size: 15px; }
+  .contact { flex-direction: column; gap: 6px; font-size: 13.5px; }
+  section { display: block; margin-top: 26px; padding-top: 18px; }
+  h2 { margin-bottom: 12px; }
+  .what { display: block; margin-left: 0; }
+  .when { white-space: normal; }
+  .skills > div { display: block; }
+  .skills > div + div { margin-top: 10px; }
+}
+
+/* Print: one A4 page. Always light, whatever theme is active on screen. */
+@page { size: A4; margin: 10mm 12mm; }
+@media print {
+  :root, :root[data-theme="dark"], :root:not([data-theme="light"]) {
+    --page: #fff;
+    --sheet: #fff;
+    --ink: #111;
+    --muted: #444;
+    --rule: #d6d6d6;
+    --accent: #5b21b6;
+    --shadow: none;
+    color-scheme: light;
+  }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { padding: 0; font-size: 8.5pt; line-height: 1.4; }
+  .toolbar { display: none; }
+  .only-print { display: revert; }
+  .sheet { max-width: none; margin: 0; padding: 0; border: 0; border-radius: 0; }
+  a { text-decoration: none; }
+  .masthead h1 { font-size: 21pt; }
+  .summary { margin-top: 4pt; max-width: none; font-size: 9pt; }
+  .contact { margin-top: 5pt; gap: 0 16pt; font-size: 8pt; }
+  section { grid-template-columns: 24mm minmax(0, 1fr); column-gap: 4mm; margin-top: 7pt; padding-top: 6pt; }
+  h2 { margin-top: 1.5pt; font-size: 7pt; }
+  h3 { font-size: 9.6pt; }
+  .when, .stack { font-size: 7.2pt; }
+  .stack { margin-top: 0.5pt; }
+  .entry { break-inside: avoid; }
+  .entry + .entry { margin-top: 6pt; }
+  ul { margin-top: 2pt; }
+  li { margin-top: 1pt; }
+  .compact li + li { margin-top: 2pt; }
+  .skills > div { grid-template-columns: 19mm minmax(0, 1fr); column-gap: 2mm; }
+  .skills > div + div { margin-top: 1.5pt; }
+}

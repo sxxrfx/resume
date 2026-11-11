@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sagar Negi · Resume</title>
+<meta name="description" content="Sagar Negi builds local-first software in Rust, TypeScript and Kotlin: an accessible text-to-speech reader for macOS, a TLA+ course and an offline ebook reader.">
+<meta name="author" content="Sagar Negi">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Sagar Negi · Resume">
+<meta property="og:description" content="Local-first software in Rust, TypeScript and Kotlin: accessibility, formal methods, interpreters, graphics.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://sxxrfx.github.io/resume/">
+<link rel="canonical" href="https://sxxrfx.github.io/resume/">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>
+  // Apply a saved theme before first paint. Without one, the system setting decides.
+  try {
+    var t = localStorage.getItem("theme");
+    if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<nav class="toolbar" aria-label="Page tools">
+  <a class="button" href="Sagar-Negi-Resume.pdf" download>Download PDF</a>
+  <button class="button" id="theme-toggle" type="button" hidden>Dark</button>
+</nav>
+
+<main class="sheet">
+
+<header class="masthead">
+  <h1>Sagar Negi</h1>
+  <p class="summary">I build software that runs locally and respects the people who use it: an accessible text-to-speech reader for macOS, a TLA+ course and an offline ebook reader. Most of what I write is Rust, with TypeScript, Kotlin and Swift along the way.</p>
+  <ul class="contact">
+    <li><a href="mailto:sxxrfx@gmail.com">sxxrfx@gmail.com</a></li>
+    <li><a href="https://github.com/sxxrfx">github.com/sxxrfx</a></li>
+    <li><a href="https://x.com/sxxrfx">x.com/sxxrfx</a></li>
+    <li class="only-print"><a href="https://sxxrfx.github.io/resume/">sxxrfx.github.io/resume</a></li>
+  </ul>
+  <!-- TODO(Sagar): location and LinkedIn are not listed because your GitHub profile has neither. Add them as <li> items above. -->
+</header>
+
+<!-- TODO(Sagar): work experience. Nothing is listed because none was provided. Fill this in and uncomment it.
+<section aria-labelledby="experience">
+  <h2 id="experience">Experience</h2>
+  <div class="entries">
+    <article class="entry">
+      <div class="entry-head">
+        <h3>Job title <span class="what">Employer, city</span></h3>
+        <span class="when">Mon YYYY – Mon YYYY</span>
+      </div>
+      <ul>
+        <li>What you built or changed, and the result.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+-->
+
+<section aria-labelledby="projects">
+  <h2 id="projects">Projects</h2>
+  <div class="entries">
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3><a href="https://github.com/sxxrfx/infotransfer">InfoTransfer</a> <span class="what">Local text-to-speech reader for macOS</span></h3>
+        <span class="when">2026 · open source</span>
+      </div>
+      <p class="stack">Rust · GPUI · ONNX Runtime (sherpa-onnx) · Objective-C · Python · <a href="https://sxxrfx.github.io/infotransfer/">sxxrfx.github.io/infotransfer</a></p>
+      <ul>
+        <li>Select text in any Mac app, tap one key and hear it read aloud. Built for people with dyslexia, low vision and reading fatigue; v0.1 released under Apache-2.0.</li>
+        <li>Speech is generated on the device by a small distilled Kokoro voice on ONNX Runtime, about 0.1 s per sentence on an M4, with no account and no network after a one-time 21 MB voice download.</li>
+        <li>Reads the selection through the macOS Accessibility API and speaks code, numbers and units sensibly.</li>
+        <li>Updates itself from GitHub Releases, checking an Ed25519 signature, SHA-256 and code-signing identity.</li>
+      </ul>
+    </article>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3><a href="https://github.com/sxxrfx/tla-plus-course">TLA+ Course</a> <span class="what">Offline, visual course on formal specification</span></h3>
+        <span class="when">2026 · open source</span>
+      </div>
+      <p class="stack">TLA+ · HTML/JS · Python · Swift + Rust macOS app · <a href="https://sxxrfx.github.io/tla-plus-course/">sxxrfx.github.io/tla-plus-course</a></p>
+      <ul>
+        <li>Follows Lamport's TLA+ video lectures, then goes beyond them into concurrency, proofs and failure-prone systems: 39 lessons, 61 problems, 206 diagrams and interactive labs in a single HTML file that works offline.</li>
+        <li>Problem sets model real systems: Raft-style elections, Paxos commit, write skew under snapshot isolation, leases with fencing tokens and a CRDT counter. Every spec in the course is checked with TLC.</li>
+        <li>A Python build lints diagrams, links and problem sets, Playwright tests cover every page, and a macOS menu-bar app serves the course locally and saves progress.</li>
+      </ul>
+    </article>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3>BookWyrm <span class="what">Offline ebook reader for Android and iOS</span></h3>
+        <span class="when">2026 · in progress, private</span>
+      </div>
+      <p class="stack">TypeScript · React Native · Expo</p>
+      <ul>
+        <li>EPUB import, continuous reading across chapters, highlights, notes, bookmarks, search, themes and fonts, with no account; books and progress stay on the device.</li>
+        <li>Read aloud with the device's voices, with a paragraph seek bar and a sleep timer; a library with reading status and collections, and backup export.</li>
+      </ul>
+    </article>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3>EchoCatch <span class="what">Android notifier for new web-serial chapters</span></h3>
+        <span class="when">2026 · private</span>
+      </div>
+      <p class="stack">Kotlin · Jetpack Compose · WorkManager · Room · Jsoup</p>
+      <ul>
+        <li>Checks Royal Road, Pawchive and Novel Fire in the background and posts one quiet notification per new chapter; Room deduplicates, so overlapping checks never announce an update twice.</li>
+        <li>Fetches over plain HTTP and falls back to a hidden WebView only to clear a Cloudflare challenge; per-site parsers are tested against saved pages.</li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<section aria-labelledby="more">
+  <h2 id="more">More work</h2>
+  <ul class="compact">
+    <li><strong>Learning tools:</strong> Backend Anatomy, a PWA that explains 50 backend concepts with quizzes and animated figures (TypeScript, React); device-sidebar, a device frame and review sidebar for Expo apps.</li>
+    <li><strong>Interpreters:</strong> the <a href="https://github.com/sxxrfx/monkey">Monkey language</a> in Go, a tree-walking <a href="https://github.com/sxxrfx/craftinginterpreters-tut">Lox interpreter</a> in Java and a <a href="https://github.com/sxxrfx/regex-from-scratch">regex engine</a> on a finite state machine in Rust.</li>
+    <li><strong>Rust systems:</strong> an <a href="https://github.com/sxxrfx/cache">LRU cache</a>, <a href="https://github.com/sxxrfx/trie-rs">trie</a>, <a href="https://github.com/sxxrfx/hash-table-rs">hash table</a>, <a href="https://github.com/sxxrfx/channels">channels</a> and <a href="https://github.com/sxxrfx/arc">Arc</a> written from scratch; REST and auth servers with <a href="https://github.com/sxxrfx/axum-rest-server">Axum</a> and <a href="https://github.com/sxxrfx/auth-server">Warp + JWT</a>.</li>
+    <li><strong>Graphics and games:</strong> <a href="https://github.com/sxxrfx/fractal-shaders">WGSL fractal shaders</a>, <a href="https://github.com/sxxrfx/space-invaders-rs">Space Invaders</a> and <a href="https://github.com/sxxrfx/breakout">Breakout</a> in Bevy, and a <a href="https://github.com/sxxrfx/music-visualizer">music visualizer</a> with raylib and cpal.</li>
+    <li><strong>Machine learning (college):</strong> an <a href="https://github.com/sxxrfx/MNIST-DIGIT-RECOGNIZER">MNIST digit recognizer</a> served as a Streamlit app and a <a href="https://github.com/sxxrfx/Tic-Tac-Toe-AI-using-MINIMAX">minimax tic-tac-toe AI</a> in Python.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="skills">
+  <h2 id="skills">Skills</h2>
+  <dl class="skills">
+    <div><dt>Languages</dt><dd>Rust (primary), TypeScript/JavaScript, Kotlin, Python, Swift, Go; some Java, C++, Lua, Haskell</dd></div>
+    <div><dt>Platforms</dt><dd>macOS (GPUI, Accessibility API), Android (Jetpack Compose, Room), React Native (Expo), React</dd></div>
+    <div><dt>Tools</dt><dd>TLA+ and TLC, ONNX Runtime, Axum, Warp, Bevy, Playwright, Vite, Git, GitHub Actions</dd></div>
+    <div><dt>Interests</dt><dd>Accessibility, formal methods, local-first software, interpreters, graphics</dd></div>
+  </dl>
+</section>
+
+<section aria-labelledby="education">
+  <h2 id="education">Education</h2>
+  <div class="entries">
+    <article class="entry">
+      <div class="entry-head">
+        <h3>B.Sc. (Hons) Computer Science <span class="what">Aryabhatta College, University of Delhi</span></h3>
+        <span class="when">2019 – 2022</span>
+      </div>
+      <ul>
+        <li>CGPA 7.946 / 10 (about 75.5%), First Division.</li>
+        <li>Top grades: Data Structures (O), Operating Systems (O), Computer Networks (A+), Theory of Computation (A+).</li>
+        <li>Also studied: algorithms, databases, software engineering, artificial intelligence, computer graphics, machine learning, data mining.</li>
+      </ul>
+    </article>
+    <!-- TODO(Sagar): Class XII (high school). The report card was not available, so nothing is listed. Fill this in and uncomment it.
+    <article class="entry">
+      <div class="entry-head">
+        <h3>Class XII, stream <span class="what">School, board</span></h3>
+        <span class="when">YYYY</span>
+      </div>
+      <ul>
+        <li>Percentage or grade.</li>
+      </ul>
+    </article>
+    -->
+  </div>
+</section>
+
+</main>
+
+<script>
+  // Theme toggle: the label names the theme the button switches to.
+  (function () {
+    var root = document.documentElement;
+    var button = document.getElementById("theme-toggle");
+    var system = window.matchMedia("(prefers-color-scheme: dark)");
+    function current() {
+      return root.dataset.theme || (system.matches ? "dark" : "light");
+    }
+    function label() {
+      button.textContent = current() === "dark" ? "Light" : "Dark";
+      button.setAttribute("aria-label", "Switch to " + button.textContent.toLowerCase() + " theme");
+    }
+    button.hidden = false;
+    label();
+    system.addEventListener("change", label);
+    button.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      label();
+    });
+  })();
+</script>
+</body>
+</html>
