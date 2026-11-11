@@ -140,6 +140,7 @@ h2 {
   color: var(--accent);
 }
 
+.note { margin: 0 0 14px; color: var(--muted); }
 .entry + .entry { margin-top: 20px; }
 .entry-head {
   display: flex;
@@ -229,6 +230,7 @@ strong { font-weight: 600; }
   .when, .stack { font-size: 7.2pt; }
   .stack { margin-top: 0.5pt; }
   .entry { break-inside: avoid; }
+  .note { margin-bottom: 4pt; }
   .entry + .entry { margin-top: 6pt; }
   ul { margin-top: 2pt; }
   li { margin-top: 1pt; }
